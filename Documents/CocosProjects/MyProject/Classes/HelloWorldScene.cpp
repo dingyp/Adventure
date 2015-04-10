@@ -33,14 +33,22 @@ bool HelloWorld::init()
     
     Sprite * sprite =Sprite::create("hero1.png");
     sprite->setPosition(Vec2(100,400));
+    sprite->setTag(1);
     addChild(sprite,1);
     
     Sprite * background =Sprite::create("bg.png");
     background->setAnchorPoint(Vec2(0,0));
     addChild(background,0);
+    scheduleUpdate();
     return true;
 }
 void HelloWorld::update(float dt)
 {
+    Node * node =this->getChildByTag(1);
+    Point p=node->getPosition();
+    if(p.y>96){
+        node->setPosition(Point(p.x,p.y-5));
+    }
     
+    CCLOG("update");
 }
