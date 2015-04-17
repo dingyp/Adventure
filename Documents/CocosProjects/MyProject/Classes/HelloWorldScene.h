@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 
+using namespace cocos2d;
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -16,6 +17,14 @@ public:
     CREATE_FUNC(HelloWorld);
     
     void update(float dt);
+    
+    void updatePosition(float dt);
+    
+    float time,time2;
+    
+    //Sprite * sprite;
+    
+    
 };
 
 #endif // __HELLOWORLD_SCENE_H__
