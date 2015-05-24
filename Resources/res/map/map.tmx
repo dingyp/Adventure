@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="blue_shroom" tilewidth="32" tileheight="32">
+  <image source="blue_shroom.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="1025" name="spritesheet_ground2" tilewidth="32" tileheight="32">
+  <image source="spritesheet_ground2.png" width="256" height="512"/>
+ </tileset>
+ <layer name="background" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwN0tVZFgAAheEfVOwFEDtQ1AWwO1kAMehegO5mAbqbBehuFqDtXsDC9+J9vqtzd7ICgUA2OeSSRz4FxBJHPAkkkkQyKaSSRjoZZFJHPQ000kQzLRRSRDEllFJGORVUUkU1NdQyxDAjjDLGOBO00kY7HXTSRTc99NJHPwMMssY6G2yyxTY7TDLFNDPMMsc8CyyyxDIrrPKL3/zhL//YJRAUCLyVd7znAx/5xGe+8JVvfOcHPwm1O0YYxznBSU4RRDB72Ms+QtjPAQ5yiMMc4SiRXOM6N7jJLW5zmjOc5RznuUA4F7lEBJe5wlWieUEML3nFa95wh7vc4z4PeMgjHvOEpzzjOVFkkU0OueSRTwGxxBFPAokkkUwKqaSRTgaZ1FFPA4000UwLhRRRTAmllFFOBZVUUU0NtQwxzAijjDHOBK200U4HnXTRTQ+99NHPAIOssc4Gm2yxzQ6TTDHNDLPMMc8CiyyxzAqr/OI3f/jLP3YJBPufvuM9H/jIJz7zha984zs/+Emo3THCOM4JTnKKIILZw172EcJ+DnCQQxzmCEeJ5BrXucFNbnGb05zhLOc4zwXCucglIrjMFa4SzQtieMkrXvOGO9zlHvd5wEMe8ZgnPOUZz4kii2xyyCWPfAqIJY54EkgkiWRSSCWNdDLIpI56GmikiWZaKKSIYkoopYxyKqikimpqqGWIYUYYZYxxJmiljXY66KSLbnropY9+BhhkjXU22GSLbXaYZIppZphljnkWWGSJZVZY5T/zj8+z
+  </data>
+ </layer>
+ <layer name="ground" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAJUoMOCwNQA/iwITE3zdEfNG1DzAMHOBb0=
+  </data>
+ </layer>
+ <objectgroup name="init">
+  <object id="1" name="player" x="111" y="205"/>
+ </objectgroup>
+</map>

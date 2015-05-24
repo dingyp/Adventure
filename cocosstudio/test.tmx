@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="15" tilewidth="32" tileheight="32" nextobjectid="15">
+ <tileset firstgid="1" name="spritesheet_ground2" tilewidth="32" tileheight="32">
+  <image source="spritesheet_ground2.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="129" name="colored_grass" tilewidth="32" tileheight="32">
+  <image source="colored_grass.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="1153" name="colored_grass2" tilewidth="32" tileheight="32">
+  <image source="colored_grass2.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="50" height="15">
+  <data encoding="base64" compression="zlib">
+   eJytzcOCWAkAAMFBbNu27TWCtTmxbdu2bdu2bdu2k/qId6hrd0RoSEhlqlCValSnBjWpRW3qUJd61KcBDWlEY5rQlGY0pwUtaUVr2tCWdrSnAx2JCOjfic50oSvd6E4PetKL3vShL/3ozwAGMojBDGEowxjOCEYyitGMYSzjGM8EJgb4n8RkpjCVaUxnBjOZxWzmMJd5zGcBC1nEYpawlGUsZwUrWcVq1rCWdaxnAxsD/G9iM1vYyja2s4Od7GI3e9jLPvZzgIMc4jBHOMoxjnOCk5ziNGc4yznOc4GLAf4vcZkrXOUa17nBTW5xmzvc5R73ecBDHvGYJzzlGc95wUte8Zo3vOUd7/lASFhw/1CtMMKJRGSiEJVoRCcGMYlFbOIQl3jEJwEJSURikpCUZCQnBSlJRWrSkJZ0YcH905OBjGQiM1nISjayk4Oc5CI3echLPvJTgIIUojBFKEoxilOCkpSiNGUoS7kA/5/wKZ/xOV/wJV/xNd/wLeWpQEUq8R3f8wM/8hM/8wu/8hu/8wd/8hd/8w//8h//B/iPoDJVqEo1qlODmtSiNnWoSz3q04CGNKIxTWhKM5rTgpa0ojVtaEs72tOBjgH+O9GZLnSlG93pQU960Zs+9KUf/RnAQAYxmCEMZRjDGcFIRjGaMYxlHOOZwMQA/5OYzBSmMo3pzGAms5jNHOYyj/ksYCGLWMwSlrKM5axgJatYzRrWso71bGBjgP9NbGYLW9nGdnawk13sZg972cd+DnCQQxzmCEc5xnFOcJJTnOYMZznHeS5wMcD/JS5zhatc4zo3uMktbnOHu9zjPg94yCMe84SnPOM5L3jJK17zhre84z0fCAkP7h+qFUY4kYhMFKISjejEICaxiE0c4hKP+CQgIYlITBKSkozkpCAlqUhNGtKSLjy4f3oykJFMZCYLWclGdnKQk1zkJg95yUd+ClCQQhSmCEUpRnFKUJJSlKYMZSkX4P8jWJR9zQ==
+  </data>
+ </layer>
+ <layer name="ground" width="50" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDCXABcWjgHQgCMScSJhxYJ1DECC7lxZuxZWWRnoao3W4jyQwUGmJGwkPFOAkEaOnNW4sGN1cSgAXERgEmMjAIIBe3qL7E109A5H6yAXk+oMUeWLtowQAAPatAto=
+  </data>
+ </layer>
+ <objectgroup name="init" opacity="0.97">
+  <object id="1" name="player" x="186" y="140" width="21" height="26"/>
+ </objectgroup>
+</map>

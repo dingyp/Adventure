@@ -1,0 +1,47 @@
+<Solution>
+  <PropertyGroup Name="LevelSelection" Version="2.1.2.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Project Name="LevelSelection.csd" Type="Node" />
+        <Folder Name="Common">
+          <Image Name="Cn01.png" />
+          <Image Name="Cn02.png" />
+          <Image Name="Cn03.png" />
+          <Image Name="Cn04.png" />
+          <Image Name="Cn05.png" />
+          <Image Name="Cn06.png" />
+          <Image Name="Cn07.png" />
+          <Image Name="Cn08.png" />
+          <Image Name="Cn09.png" />
+          <Image Name="Cn10.png" />
+          <Image Name="Cn11.png" />
+          <Image Name="Cn12.png" />
+          <Image Name="Cn14.png" />
+          <Image Name="Cn15.png" />
+          <Image Name="Cn16.png" />
+          <Image Name="Cn17.png" />
+          <Image Name="Cn19.png" />
+          <Image Name="Cn20.png" />
+          <Image Name="Cn21.png" />
+        </Folder>
+        <Folder Name="LevelSelection">
+          <Image Name="LS01.png" />
+          <Image Name="LS02.png" />
+          <Image Name="LS03.png" />
+          <Image Name="LS04.png" />
+          <Image Name="LS05.png" />
+          <Image Name="LS06.png" />
+          <Image Name="LS07.png" />
+          <Image Name="LS08.png" />
+          <Image Name="LS09.png" />
+          <Image Name="LS10.png" />
+          <Image Name="LS12.png" />
+          <Image Name="LS13.png" />
+          <Image Name="LS14.png" />
+          <Image Name="LS11.png" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

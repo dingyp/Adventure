@@ -1,0 +1,125 @@
+<Solution>
+  <PropertyGroup Name="KaziProject" Version="2.1.2.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="HelloWorld.png" />
+        <Project Name="ControllerLayer.csd" Type="Layer" />
+        <Folder Name="transparentLight">
+          <Image Name="transparentLight00.png" />
+          <Image Name="transparentLight01.png" />
+          <Image Name="transparentLight03.png" />
+          <Image Name="transparentLight04.png" />
+          <Image Name="transparentLight05.png" />
+          <Image Name="transparentLight06.png" />
+          <Image Name="transparentLight07.png" />
+          <Image Name="transparentLight08.png" />
+          <Image Name="transparentLight09.png" />
+          <Image Name="transparentLight10.png" />
+          <Image Name="transparentLight11.png" />
+          <Image Name="transparentLight12.png" />
+          <Image Name="transparentLight13.png" />
+          <Image Name="transparentLight14.png" />
+          <Image Name="transparentLight15.png" />
+          <Image Name="transparentLight16.png" />
+          <Image Name="transparentLight17.png" />
+          <Image Name="transparentLight18.png" />
+          <Image Name="transparentLight19.png" />
+          <Image Name="transparentLight20.png" />
+          <Image Name="transparentLight21.png" />
+          <Image Name="transparentLight22.png" />
+          <Image Name="transparentLight23.png" />
+          <Image Name="transparentLight24.png" />
+          <Image Name="transparentLight25.png" />
+          <Image Name="transparentLight26.png" />
+          <Image Name="transparentLight27.png" />
+          <Image Name="transparentLight28.png" />
+          <Image Name="transparentLight29.png" />
+          <Image Name="transparentLight30.png" />
+          <Image Name="transparentLight31.png" />
+          <Image Name="transparentLight32.png" />
+          <Image Name="transparentLight33.png" />
+          <Image Name="transparentLight34.png" />
+          <Image Name="transparentLight35.png" />
+          <Image Name="transparentLight36.png" />
+          <Image Name="transparentLight37.png" />
+          <Image Name="transparentLight38.png" />
+          <Image Name="transparentLight39.png" />
+          <Image Name="transparentLight40.png" />
+          <Image Name="transparentLight41.png" />
+          <Image Name="transparentLight42.png" />
+          <Image Name="transparentLight43.png" />
+          <Image Name="transparentLight44.png" />
+          <Image Name="transparentLight45.png" />
+        </Folder>
+        <Project Name="ChooseScene.csd" Type="Scene" />
+        <Project Name="ChooseNode.csd" Type="Node" />
+        <TmxFile Name="test.tmx" />
+        <TmxFile Name="map3.tmx" />
+        <PlistInfo Name="Plist.csi" Type="Plist" />
+        <Image Name="transparentLight02.png" />
+        <Image Name="transparentLight46.png" />
+        <Image Name="transparentLight47.png" />
+        <Image Name="transparentLight48.png" />
+        <Image Name="transparentLight49.png" />
+        <Project Name="DialogNode.csd" Type="Node" />
+        <Folder Name="transparentDark">
+          <Image Name="transparentDark00.png" />
+          <Image Name="transparentDark01.png" />
+          <Image Name="transparentDark02.png" />
+          <Image Name="transparentDark03.png" />
+          <Image Name="transparentDark04.png" />
+          <Image Name="transparentDark05.png" />
+          <Image Name="transparentDark06.png" />
+          <Image Name="transparentDark07.png" />
+          <Image Name="transparentDark08.png" />
+          <Image Name="transparentDark09.png" />
+          <Image Name="transparentDark10.png" />
+          <Image Name="transparentDark11.png" />
+          <Image Name="transparentDark12.png" />
+          <Image Name="transparentDark13.png" />
+          <Image Name="transparentDark14.png" />
+          <Image Name="transparentDark15.png" />
+          <Image Name="transparentDark16.png" />
+          <Image Name="transparentDark17.png" />
+          <Image Name="transparentDark18.png" />
+          <Image Name="transparentDark19.png" />
+          <Image Name="transparentDark20.png" />
+          <Image Name="transparentDark21.png" />
+          <Image Name="transparentDark22.png" />
+          <Image Name="transparentDark23.png" />
+          <Image Name="transparentDark24.png" />
+          <Image Name="transparentDark25.png" />
+          <Image Name="transparentDark26.png" />
+          <Image Name="transparentDark27.png" />
+          <Image Name="transparentDark28.png" />
+          <Image Name="transparentDark29.png" />
+          <Image Name="transparentDark30.png" />
+          <Image Name="transparentDark31.png" />
+          <Image Name="transparentDark32.png" />
+          <Image Name="transparentDark33.png" />
+          <Image Name="transparentDark34.png" />
+          <Image Name="transparentDark35.png" />
+          <Image Name="transparentDark36.png" />
+          <Image Name="transparentDark37.png" />
+          <Image Name="transparentDark38.png" />
+          <Image Name="transparentDark39.png" />
+          <Image Name="transparentDark40.png" />
+          <Image Name="transparentDark41.png" />
+          <Image Name="transparentDark42.png" />
+          <Image Name="transparentDark43.png" />
+          <Image Name="transparentDark44.png" />
+          <Image Name="transparentDark45.png" />
+          <Image Name="transparentDark46.png" />
+          <Image Name="transparentDark47.png" />
+          <Image Name="transparentDark48.png" />
+          <Image Name="transparentDark49.png" />
+        </Folder>
+        <Image Name="dialog.png" />
+        <Image Name="dialog2.png" />
+        <Project Name="DialogDead.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
