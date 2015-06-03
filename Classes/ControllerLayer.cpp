@@ -39,8 +39,39 @@ bool ControllerLayer::init()
     listener->onKeyPressed = CC_CALLBACK_2(ControllerLayer::onKeyPressed, this);
     listener->onKeyReleased = CC_CALLBACK_2(ControllerLayer::onKeyReleased, this);
     
+   
+    
+    
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
+    auto touchlistener = EventListenerTouchOneByOne::create();
+    touchlistener->onTouchBegan=[](Touch* touch, Event* event){
+        auto target = static_cast<Button*>(event->getCurrentTarget());
+        
+        // 获取当前点击点所在相对按钮的位置坐标
+        Point location = touch->getLocation();
+        
+        Size s = target->getContentSize();
+        log("w:%f,h:%f",s.width,s.height);
+        Rect rect = target->getBoundingBox();
+        log("rect %f,%f",rect.size.width,rect.size.height);
+       // log("sprite began... x = %f, y = %f", location.x, location.y);
+        // 点击范围判断检测
+        if (rect.containsPoint(location))
+        {
+            log("sprite began... x = %f, y = %f", location.x, location.y);
+            return true;
+        }
+        return false;
+    };
+    touchlistener->onTouchMoved=[](Touch* touch, Event* event){
+        
+    };
+    touchlistener->onTouchEnded=[](Touch* touch, Event* event){
+        
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistener, button_Left);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistener->clone(), button_Right);
     return true;
 }
 void ControllerLayer::moveright(Ref *ref,Widget::TouchEventType type)
@@ -51,17 +82,21 @@ void ControllerLayer::moveright(Ref *ref,Widget::TouchEventType type)
     {
         case (int)(cocos2d::ui::Widget::TouchEventType::BEGAN):
             global->player->changeState(Role::rightwalk);
+            CCLOG("began");
 //            global->player->setNowDestination(Role::right);
 //            global->player->changeState(walk);
             break;
             //	case (int)(cocos2d::ui::Widget::TouchEventType::MOVED):
             
         case (int)(cocos2d::ui::Widget::TouchEventType::ENDED):
-            
+            CCLOG("ended");
+            global->player->changeState(Role::idle);
+
+            break;
             
         case (int)(cocos2d::ui::Widget::TouchEventType::CANCELED):
             global->player->changeState(Role::idle);
-            
+            CCLOG("cancled");
             
             break;
         default:
