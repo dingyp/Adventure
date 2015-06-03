@@ -48,7 +48,6 @@ bool ControllerLayer::init()
     touchlistener->onTouchBegan=[](Touch* touch, Event* event){
         auto target = static_cast<Button*>(event->getCurrentTarget());
         
-        // 获取当前点击点所在相对按钮的位置坐标
         Point location = touch->getLocation();
         
         Size s = target->getContentSize();
