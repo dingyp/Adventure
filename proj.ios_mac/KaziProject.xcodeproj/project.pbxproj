@@ -88,6 +88,12 @@
 		8A6649D11AF9BB79006AC6C0 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6649A41AF9BB79006AC6C0 /* VisibleRect.cpp */; };
 		8A6649D81AFA3EE1006AC6C0 /* Define.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6649D61AFA3EE1006AC6C0 /* Define.cpp */; };
 		8A6649D91AFA3EE1006AC6C0 /* Define.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6649D61AFA3EE1006AC6C0 /* Define.cpp */; };
+		8A8E3A101B27EF7A00D0556D /* SpriteBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E3A0E1B27EF7A00D0556D /* SpriteBlur.cpp */; };
+		8A8E3A111B27EF7A00D0556D /* SpriteBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E3A0E1B27EF7A00D0556D /* SpriteBlur.cpp */; };
+		8A91360E1B4D545400B724E7 /* GatesNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A91360C1B4D545400B724E7 /* GatesNode.cpp */; };
+		8A91360F1B4D545400B724E7 /* GatesNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A91360C1B4D545400B724E7 /* GatesNode.cpp */; };
+		8ABBB6FF1B4FF7E000AC0D18 /* IncludeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBB6FD1B4FF7E000AC0D18 /* IncludeScene.cpp */; };
+		8ABBB7001B4FF7E000AC0D18 /* IncludeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBB6FD1B4FF7E000AC0D18 /* IncludeScene.cpp */; };
 		8AED1A0B1B03A7FB00D73A2C /* PlatFormer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AED1A091B03A7FB00D73A2C /* PlatFormer.cpp */; };
 		8AED1A0C1B03A7FB00D73A2C /* PlatFormer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AED1A091B03A7FB00D73A2C /* PlatFormer.cpp */; };
 		9F284B55A7B71B071916B6F9 /* res in Resources */ = {isa = PBXBuildFile; fileRef = A2DB4B988069559D32852337 /* res */; };
@@ -187,6 +193,12 @@
 		8A6649A51AF9BB79006AC6C0 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleRect.h; sourceTree = "<group>"; };
 		8A6649D61AFA3EE1006AC6C0 /* Define.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Define.cpp; sourceTree = "<group>"; };
 		8A6649D71AFA3EE1006AC6C0 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		8A8E3A0E1B27EF7A00D0556D /* SpriteBlur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteBlur.cpp; sourceTree = "<group>"; };
+		8A8E3A0F1B27EF7A00D0556D /* SpriteBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBlur.h; sourceTree = "<group>"; };
+		8A91360C1B4D545400B724E7 /* GatesNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GatesNode.cpp; sourceTree = "<group>"; };
+		8A91360D1B4D545400B724E7 /* GatesNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GatesNode.hpp; sourceTree = "<group>"; };
+		8ABBB6FD1B4FF7E000AC0D18 /* IncludeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IncludeScene.cpp; sourceTree = "<group>"; };
+		8ABBB6FE1B4FF7E000AC0D18 /* IncludeScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IncludeScene.hpp; sourceTree = "<group>"; };
 		8AED1A091B03A7FB00D73A2C /* PlatFormer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlatFormer.cpp; sourceTree = "<group>"; };
 		8AED1A0A1B03A7FB00D73A2C /* PlatFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatFormer.h; sourceTree = "<group>"; };
 		A2DB4B988069559D32852337 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
@@ -429,10 +441,10 @@
 			children = (
 				8A66497E1AF9BB79006AC6C0 /* BaseGameScene.cpp */,
 				8A66497F1AF9BB79006AC6C0 /* BaseGameScene.h */,
+				8A66498F1AF9BB79006AC6C0 /* HelloWorldScene.h */,
+				8A66498E1AF9BB79006AC6C0 /* HelloWorldScene.cpp */,
 				8A6649821AF9BB79006AC6C0 /* ChooseScene.cpp */,
 				8A6649831AF9BB79006AC6C0 /* ChooseScene.h */,
-				8A66498E1AF9BB79006AC6C0 /* HelloWorldScene.cpp */,
-				8A66498F1AF9BB79006AC6C0 /* HelloWorldScene.h */,
 				8A6649941AF9BB79006AC6C0 /* MyGameScene.cpp */,
 				8A6649951AF9BB79006AC6C0 /* MyGameScene.h */,
 				8A6649961AF9BB79006AC6C0 /* MyGameScene1.cpp */,
@@ -448,6 +460,10 @@
 			children = (
 				8A6649D61AFA3EE1006AC6C0 /* Define.cpp */,
 				8A6649D71AFA3EE1006AC6C0 /* Define.h */,
+				8A8E3A0E1B27EF7A00D0556D /* SpriteBlur.cpp */,
+				8A8E3A0F1B27EF7A00D0556D /* SpriteBlur.h */,
+				8ABBB6FD1B4FF7E000AC0D18 /* IncludeScene.cpp */,
+				8ABBB6FE1B4FF7E000AC0D18 /* IncludeScene.hpp */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -457,6 +473,8 @@
 			children = (
 				8AED1A091B03A7FB00D73A2C /* PlatFormer.cpp */,
 				8AED1A0A1B03A7FB00D73A2C /* PlatFormer.h */,
+				8A91360C1B4D545400B724E7 /* GatesNode.cpp */,
+				8A91360D1B4D545400B724E7 /* GatesNode.hpp */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -515,7 +533,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = MDDB52YB8L;
+						DevelopmentTeam = ZD5F37XBVC;
 					};
 				};
 			};
@@ -587,12 +605,15 @@
 				8A6649BA1AF9BB79006AC6C0 /* HelloWorldScene.cpp in Sources */,
 				8AED1A0B1B03A7FB00D73A2C /* PlatFormer.cpp in Sources */,
 				8A6649AC1AF9BB79006AC6C0 /* ChooseNode.cpp in Sources */,
+				8A8E3A101B27EF7A00D0556D /* SpriteBlur.cpp in Sources */,
 				8A6649C61AF9BB79006AC6C0 /* Player.cpp in Sources */,
 				8A6649C21AF9BB79006AC6C0 /* MyGameScene1.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				8A6649CA1AF9BB79006AC6C0 /* SingleTon.cpp in Sources */,
+				8ABBB6FF1B4FF7E000AC0D18 /* IncludeScene.cpp in Sources */,
 				8A6649A81AF9BB79006AC6C0 /* BaseDialog1.cpp in Sources */,
 				8A6649AA1AF9BB79006AC6C0 /* BaseGameScene.cpp in Sources */,
+				8A91360E1B4D545400B724E7 /* GatesNode.cpp in Sources */,
 				8A6649BE1AF9BB79006AC6C0 /* MapLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				8A6649C81AF9BB79006AC6C0 /* Role.cpp in Sources */,
@@ -625,6 +646,8 @@
 				8A6649B51AF9BB79006AC6C0 /* DialogNode.cpp in Sources */,
 				8A6649BB1AF9BB79006AC6C0 /* HelloWorldScene.cpp in Sources */,
 				8A6649B11AF9BB79006AC6C0 /* ControllerLayer.cpp in Sources */,
+				8A8E3A111B27EF7A00D0556D /* SpriteBlur.cpp in Sources */,
+				8ABBB7001B4FF7E000AC0D18 /* IncludeScene.cpp in Sources */,
 				8A6649CF1AF9BB79006AC6C0 /* UILayer.cpp in Sources */,
 				8A6649AF1AF9BB79006AC6C0 /* ChooseScene.cpp in Sources */,
 				8A6649CB1AF9BB79006AC6C0 /* SingleTon.cpp in Sources */,
@@ -632,6 +655,7 @@
 				8A6649A71AF9BB79006AC6C0 /* AppDelegate.cpp in Sources */,
 				8A6649C91AF9BB79006AC6C0 /* Role.cpp in Sources */,
 				8A6649AB1AF9BB79006AC6C0 /* BaseGameScene.cpp in Sources */,
+				8A91360F1B4D545400B724E7 /* GatesNode.cpp in Sources */,
 				8A6649C51AF9BB79006AC6C0 /* MyGameScene2.cpp in Sources */,
 				8A6649B71AF9BB79006AC6C0 /* Global.cpp in Sources */,
 				8AED1A0C1B03A7FB00D73A2C /* PlatFormer.cpp in Sources */,
@@ -650,6 +674,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -668,13 +693,14 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.4rc1/prebuilt/ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
 				PRODUCT_NAME = "Adventure iOS";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -687,6 +713,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -703,13 +730,14 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.4rc1/prebuilt/ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
 				PRODUCT_NAME = "Adventure iOS";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -807,6 +835,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/external",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/external/chipmunk/include/chipmunk",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -836,6 +865,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/external",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.4rc1/external/chipmunk/include/chipmunk",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";

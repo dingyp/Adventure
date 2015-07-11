@@ -51,7 +51,7 @@
             <PressedFileData Type="Normal" Path="transparentLight/transparentLight43.png" />
             <NormalFileData Type="Normal" Path="transparentLight/transparentLight43.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Button_Back" ActionTag="386065336" FrameEvent="" Tag="9" LeftMargin="411.4996" RightMargin="20.5004" TopMargin="59.5002" BottomMargin="212.4998" TouchEnable="True" FontSize="14" ButtonText="" Scale9Enable="True" Scale9Width="48" Scale9Height="48" ctype="ButtonObjectData">
+          <NodeObjectData Name="Button_Back" ActionTag="386065336" VisibleForFrame="False" FrameEvent="" Tag="9" LeftMargin="411.4996" RightMargin="20.5004" TopMargin="59.5002" BottomMargin="212.4998" TouchEnable="True" FontSize="14" ButtonText="" Scale9Enable="True" Scale9Width="48" Scale9Height="48" ctype="ButtonObjectData">
             <Position X="435.4996" Y="236.4998" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

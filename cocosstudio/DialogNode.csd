@@ -32,7 +32,7 @@
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
                 <PressedFileData Type="Normal" Path="transparentLight/transparentLight45.png" />
-                <NormalFileData Type="Normal" Path="transparentDark/transparentDark45.png" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
               </NodeObjectData>
               <NodeObjectData Name="Button_Ok" ActionTag="1381766142" FrameEvent="" Tag="8" LeftMargin="17.0433" RightMargin="17.9567" TopMargin="53.6276" BottomMargin="-19.6276" TouchEnable="True" FontSize="14" ButtonText="" Scale9Enable="True" Scale9Width="80" Scale9Height="80" ctype="ButtonObjectData">
                 <Position X="57.0433" Y="20.3724" />
@@ -45,7 +45,7 @@
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
                 <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-                <NormalFileData Type="Normal" Path="transparentDark/transparentDark44.png" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
               </NodeObjectData>
             </Children>
             <FileData Type="Normal" Path="dialog2.png" />

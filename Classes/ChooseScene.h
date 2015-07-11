@@ -26,8 +26,8 @@ public:
     void chooseleft(Ref * ref,Widget::TouchEventType type);
     void choose(Ref * ref,Widget::TouchEventType type);
     void back(Ref * ref,Widget::TouchEventType type);
-
-    Node * mainNode ;
+    void initGateNode(PageView * chooseNode);
+    Node * mainNode;
     int sceneIndex;
 };
 

@@ -30,6 +30,7 @@ public:
     Player * player;
     Node * platFormNode;
     TMXTiledMap *map;
+    Point nowchoosePoint;
 };
 
 #define global Global::instance()

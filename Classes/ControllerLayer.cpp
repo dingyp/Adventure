@@ -30,10 +30,14 @@ bool ControllerLayer::init()
     
     button_Jump->addTouchEventListener(CC_CALLBACK_2(ControllerLayer::jump, this));
     
-    Button * button_Back = static_cast<Button * >(ui->getChildByName("Button_Back"));
-    
-    button_Back->addTouchEventListener(CC_CALLBACK_2(ControllerLayer::back,this));
-    
+//    Button * button_Back = static_cast<Button * >(ui->getChildByName("Button_Back"));
+//    
+//    button_Back->addTouchEventListener(CC_CALLBACK_2(ControllerLayer::back,this));
+    Button * button_Back2 = Button::create("transparentLight/transparentLight43.png");
+    button_Back2->setPosition(VisibleRect::mrightTop());
+    button_Back2->setScale(0.6);
+    button_Back2->addTouchEventListener(CC_CALLBACK_2(ControllerLayer::back, this));
+    addChild(button_Back2);
     
     auto listener = EventListenerKeyboard::create();
     listener->onKeyPressed = CC_CALLBACK_2(ControllerLayer::onKeyPressed, this);
@@ -49,11 +53,11 @@ bool ControllerLayer::init()
         auto target = static_cast<Button*>(event->getCurrentTarget());
         
         Point location = touch->getLocation();
-        
+        log("location begin %f,%f",location.x,location.y);
         Size s = target->getContentSize();
-        log("w:%f,h:%f",s.width,s.height);
+       // log("w:%f,h:%f",s.width,s.height);
         Rect rect = target->getBoundingBox();
-        log("rect %f,%f",rect.size.width,rect.size.height);
+        log("rect %f,%f,%f,%f",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height);
        // log("sprite began... x = %f, y = %f", location.x, location.y);
         // 点击范围判断检测
         if (rect.containsPoint(location))
@@ -64,12 +68,12 @@ bool ControllerLayer::init()
         return false;
     };
     touchlistener->onTouchMoved=[](Touch* touch, Event* event){
-        
+        log("touch moved %f,%f",touch->getLocation().x,touch->getLocation().y );
     };
     touchlistener->onTouchEnded=[](Touch* touch, Event* event){
         
     };
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistener, button_Left);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistener->clone(), button_Left);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistener->clone(), button_Right);
     return true;
 }
@@ -81,21 +85,21 @@ void ControllerLayer::moveright(Ref *ref,Widget::TouchEventType type)
     {
         case (int)(cocos2d::ui::Widget::TouchEventType::BEGAN):
             global->player->changeState(Role::rightwalk);
-            CCLOG("began");
+          //  CCLOG("began");
 //            global->player->setNowDestination(Role::right);
 //            global->player->changeState(walk);
             break;
             //	case (int)(cocos2d::ui::Widget::TouchEventType::MOVED):
             
         case (int)(cocos2d::ui::Widget::TouchEventType::ENDED):
-            CCLOG("ended");
+            //CCLOG("ended");
             global->player->changeState(Role::idle);
 
             break;
             
         case (int)(cocos2d::ui::Widget::TouchEventType::CANCELED):
             global->player->changeState(Role::idle);
-            CCLOG("cancled");
+            //CCLOG("cancled");
             
             break;
         default:
@@ -114,10 +118,13 @@ void ControllerLayer::moveleft(Ref *ref,Widget::TouchEventType type)
     switch ((int)type)
     {
         case (int)(cocos2d::ui::Widget::TouchEventType::BEGAN):
+            
             global->player->changeState(Role::leftwalk);
 //            global->player->setNowDestination(Role::left);
 //            global->player->changeState(walk);
             break;
+      
+            
         case (int)(cocos2d::ui::Widget::TouchEventType::ENDED):
             
             

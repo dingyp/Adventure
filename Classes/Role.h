@@ -45,7 +45,7 @@ public:
     void JumpOverCallBack();
     void setViewpointCenter(Point p);
   //  void updateViewPointer(float dt);
-    bool isDown,isJump,isRun;
+    bool isDown,isJump,isRun;//isDown代表是否下落
     
     ActionInterval * moveAction;
     ActionInterval * downAction;
@@ -54,12 +54,9 @@ public:
     
     Point _velocity;
     Point _horizontalvelocity;
-    
-    
     int yIndexPlatForm;
     float platformy;
     float moveplatformy;
-    
     string name;
     State nowState;
     State formState;

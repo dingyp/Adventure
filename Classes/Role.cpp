@@ -221,18 +221,25 @@ void Role::updateState(float dt)
                         schedule(schedule_selector(Role::updateGravity),  global->fps);
                         isDown=true;
                         CCLOG("downstart");
+                        
                         //判断是否在自定义平台上
                       //  isOnPlatFormer=false;
                     }else{
                         schedule(schedule_selector(Role::updateGravity),  global->fps);
-                        isDown=true;
+                        if (!isOnPlatFormer) {
+                        log("isOnplatFormer: false");
+                            isDown=true;//modified ?
+                        }else{
+                            log("isOnplatFormer: true ");
+                            isDown=false;
+                        }
+                        
                         //CCLOG("b");
                        // isOnPlatFormer=true;
                     }
                 }
                 
             }else{
-                //CCLOG("c");
                 yIndexPlatForm=i+1;
                 platformy=MAX(global->positionCoordForTile(Vec2(point.x,yIndexPlatForm)).y+global->map->getTileSize().height/2,moveplatformy);
                 if (platformy!=moveplatformy) {
@@ -304,7 +311,7 @@ void Role::setViewpointCenter(Point p)
     y = MIN(y, (global->map->getMapSize().height*global->map->getTileSize().height) - size.height / 2);
     Point actualPosition = Point(x, y);
     Point centerOfView = Point(size.width / 2, size.height / 2);
-    Point viewPoint =centerOfView- actualPosition;
+    Point viewPoint =centerOfView - actualPosition;
 
     
     this->getParent()->setPosition(viewPoint);

@@ -18,7 +18,7 @@ void AppDelegate::initGLContextAttrs()
     //set OpenGL context attributions,now can only set six attributions:
     //red,green,blue,alpha,depth,stencil
     GLContextAttrs glContextAttrs = {8, 8, 8, 8, 24, 8};
-
+ //GLContextAttrs glContextAttrs = {255,255,255,255,255,255};
     GLView::setGLContextAttrs(glContextAttrs);
 }
 
@@ -27,7 +27,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("MyAdventure", Rect(0, 0, 840,480));
+        glview = GLViewImpl::createWithRect("MyAdventure", Rect(0, 0, 760,480));
         director->setOpenGLView(glview);
     }
     director->getOpenGLView()->setDesignResolutionSize(480, 320, ResolutionPolicy::FIXED_WIDTH);
@@ -35,7 +35,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // turn on display FPS
     //director->setDisplayStats(true);
-
+    glClearColor(1.0, 1.0, 1.0, 1.0);
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 /60);
 
@@ -61,7 +61,7 @@ void AppDelegate::applicationDidEnterBackground() {
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
-
+    
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

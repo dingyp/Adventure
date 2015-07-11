@@ -57,6 +57,8 @@ bool HelloWorld::init()
     int x = spawnPoint["x"].asInt();
     int y = spawnPoint["y"].asInt();
     
+    
+    
     hero->setPosition(Vec2(x,y));
     global->player=hero;
     addChild(hero,1);

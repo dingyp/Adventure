@@ -44,8 +44,8 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
-                <PressedFileData Type="Normal" Path="transparentDark/transparentDark45.png" />
-                <NormalFileData Type="Normal" Path="transparentDark/transparentDark45.png" />
+                <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
               </NodeObjectData>
             </Children>
             <FileData Type="Normal" Path="dialog2.png" />
