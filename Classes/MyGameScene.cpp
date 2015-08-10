@@ -7,9 +7,12 @@
 //
 
 #include "MyGameScene.h"
+#include "IncludeScene.hpp"
+
 MyGameScene::MyGameScene()
 {
-    map=TMXTiledMap::create("map/map2.tmx");
+    map= cocos2d::experimental::TMXTiledMap::create("map/map1.tmx");// experimental::TMXTiledMap::create("map/map2.tmx");
+    
   //   background=Sprite::create("map/blue_shroom.png");
 }
 Scene* MyGameScene::createScene()
@@ -39,7 +42,7 @@ void MyGameScene::onEnter()
 {
     BaseGameScene::onEnter();
     CCLOG("isover");
-    Vec2 * positions=new Vec2[10];
+ 
     schedule(schedule_selector(MyGameScene::updateEvent), 1);
     
 }
@@ -47,4 +50,8 @@ void MyGameScene::onEnter()
 void MyGameScene::restart()
 {
     Director::getInstance()->replaceScene(TransitionFade::create(1, MyGameScene::createScene()));
+}
+
+void MyGameScene::nextScene(float dt){
+     Director::getInstance()->replaceScene(TransitionFade::create(1, MyGameScene1::createScene()));
 }

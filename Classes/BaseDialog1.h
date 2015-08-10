@@ -25,5 +25,8 @@ public:
     virtual void close();
     Size dialogSize;
     Scale9Sprite *background;
+    Button * closeButton;
+    void setCloseButton();
+    bool isSetClose;
 };
 #endif /* defined(__KaziProject__BaseDialog1__) */

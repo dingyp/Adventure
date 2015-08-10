@@ -10,13 +10,10 @@
 DECLARE_SINGLETON_MEMBER(Global);
 Global::Global(void)
 {
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("herostay.plist","herostay.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("herowalk.plist","herowalk.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("hero2.plist","hero2.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("images/hero3.plist","images/hero3.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("images/grasstile.plist", "images/grasstile.png");
     fps=  (Director::getInstance()->getAnimationInterval());
     fps= 0.01;
+    
+    character_index = UserDefault::getInstance()->getIntegerForKey("character_index",0);
 }
 Global::~Global(void)
 {
@@ -27,7 +24,7 @@ Animation *Global::createAni(string name, int frames){
     for(int i = 1 ; i<= frames;i++){
         char s[2];
         sprintf(s,"%d",i);
-        animation->addSpriteFrame(SpriteFrameCache::getInstance()->spriteFrameByName(name+s+".png"));
+        animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(name+s+".png"));
         
     }
     animation->setDelayPerUnit(0.08);
@@ -40,11 +37,10 @@ Animation *Global::createAni(string name, int start,int end){
     for(int i = start   ; i<= end;i++){
         char s[2];
         sprintf(s,"%d",i);
-        animation->addSpriteFrame(SpriteFrameCache::getInstance()->spriteFrameByName(name+s+".png"));
+        animation->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(name+s+".png"));
         
     }
     animation->setDelayPerUnit(0.08);
-    
     animation->retain();
     return animation;
 }

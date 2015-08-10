@@ -23,14 +23,24 @@ public:
     Animation * createAni(Texture2D * texture,int row,int col,int frames);
     Animation * createAni(string name, int frames);
     Animation * createAni(string name, int start,int end);
-    Point  tileCoordForPosition(Point pos);//用于游戏坐标换算到地图坐标
-    Point  positionCoordForTile(Point pos);//用于地图坐标换算到游戏坐标
+    Point tileCoordForPosition(Point pos);//用于游戏坐标换算到地图坐标
+    Point positionCoordForTile(Point pos);//用于地图坐标换算到游戏坐标
 
     double fps;
     Player * player;
     Node * platFormNode;
-    TMXTiledMap *map;
+    experimental::TMXTiledMap *map;
     Point nowchoosePoint;
+    
+    Sprite  * background ;
+    
+    int scoreNum;//当前分数
+    int hearts;
+    int character_index;
+    
+    
+    
+    int diamonds;// 钻石💎个数
 };
 
 #define global Global::instance()

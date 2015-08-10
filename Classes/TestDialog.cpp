@@ -24,7 +24,7 @@ bool TestDialog::init(){
     label->setColor(COLOR_BLACK);
     label->setPosition(Vec2(0,30));
     addChild(label,1);
-    
+    this->setCloseButton();
     Button * button =Button::create("images/dialog2.png");
     addChild(button,1);
     button->setTitleColor(COLOR_BLACK);

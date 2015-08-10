@@ -17,5 +17,8 @@ public:
     CREATE_FUNC(Player);
     Player();
     void updateViewPoint(float dt);
+    int hearts;//生命数
+    bool isWin;
+    
 };
 #endif /* defined(__KaziProject__Player__) */

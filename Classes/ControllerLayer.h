@@ -9,16 +9,21 @@
 #ifndef __KaziProject__ControllerLayer__
 #define __KaziProject__ControllerLayer__
 
+
 #include <stdio.h>
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Global.h"
+
+
 using namespace cocos2d::ui;
 using namespace cocostudio;
 using namespace cocos2d;
+
 class ControllerLayer:public Layer
 {
+    
 public:
     virtual bool init();
     CREATE_FUNC(ControllerLayer);
@@ -31,6 +36,11 @@ public:
     void back(Ref * ref,Widget::TouchEventType type);
     void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
     void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
+    
+    
+    void updateUI(float dt);
+    Label * heartLabel;
+    Label * scoreLabel;
 };
 
 #endif /* defined(__KaziProject__ControllerLayer__) */

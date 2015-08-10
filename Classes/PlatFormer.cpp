@@ -10,7 +10,7 @@
 void PlatFormer::onEnter()
 {
     Node::onEnter();
-    mSprite=Sprite::createWithSpriteFrameName("grassMid.png");
+    mSprite=Sprite::createWithSpriteFrameName(fileName);
     
     mSprite->setScale(scales);
     _velocity=Vec2(0,0);
@@ -27,6 +27,11 @@ Size PlatFormer::getContentSize(){
 }
 PlatFormer::PlatFormer()
 {
+    scales=0.25;
+    fileName = "grassMid.png";
+}
+PlatFormer::PlatFormer(string fname){
+    fileName=fname;
     scales=0.25;
 }
 void PlatFormer::updateMove(float dt){
@@ -52,4 +57,9 @@ void PlatFormer::updateMove(float dt){
     if (_distance>maxdistance||_distance<0) {
         _velocity=-_velocity;
     }
+}
+Rect PlatFormer::getBoundingBox(){
+    return Rect(this->getPositionX()-mSprite->getBoundingBox().size.width/2,
+                this->getPositionY()-mSprite->getBoundingBox().size.height/2,
+                mSprite->getBoundingBox().size.width,mSprite->getBoundingBox().size.height);
 }

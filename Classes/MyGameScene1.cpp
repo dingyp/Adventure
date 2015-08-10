@@ -7,9 +7,10 @@
 //
 
 #include "MyGameScene1.h"
+#include "IncludeScene.hpp"
 MyGameScene1::MyGameScene1()
 {
-    map=TMXTiledMap::create("map/test.tmx");
+    map=experimental::TMXTiledMap::create("map/test.tmx");
     // background=Sprite::create("map/blue_shroom.png");
 }
 Scene* MyGameScene1::createScene()
@@ -32,7 +33,7 @@ Scene* MyGameScene1::createScene()
 }
 void MyGameScene1::updateEvent(float dt)
 {
-    // int x=global->player->getPosition().x;
+   
     
     
 }
@@ -40,10 +41,6 @@ void MyGameScene1::onEnter()
 {
     BaseGameScene::onEnter();
     CCLOG("isover");
-    Vec2 * positions=new Vec2[10];
-    
-    
-    
     schedule(schedule_selector(MyGameScene1::updateEvent), 1);
     
 }
@@ -51,4 +48,6 @@ void MyGameScene1::restart()
 {
     Director::getInstance()->replaceScene(TransitionFade::create(1, MyGameScene1::createScene()));
 }
-
+void MyGameScene1::nextScene(float dt){
+    Director::getInstance()->replaceScene(TransitionFade::create(1, MyGameScene2::createScene()));
+}

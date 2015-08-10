@@ -17,14 +17,17 @@ class PlatFormer:public Node{
 public:
     virtual void onEnter();
     PlatFormer();
+    PlatFormer(string filename);
     Sprite * mSprite;
     string name;
     virtual Size getContentSize();
+    virtual Rect getBoundingBox();
     float scales;
     Vec2 _velocity;
     void updateMove(float dt);
     float _distance;
     float maxdistance;
     int moveID;
+    string fileName;
 };
 #endif /* defined(__KaziProject__PlatFormer__) */

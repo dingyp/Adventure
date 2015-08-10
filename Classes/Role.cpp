@@ -23,13 +23,19 @@ void Role::onEnter()
         // this->setIdleAni(global->createAni(idleTexture, 1, 10, 10));
         this->setIdleAni(global->createAni("herostay", 5));
         scales=0.5;
+        speed = 1;
     }
     _velocity=Point(0,0);
     isOnPlatFormer=false;
-    
+    isRecycled = false;
+    //speed = 1.5;
     char spname[25];
     sprintf(spname, "walk1");
-    mSprite=Sprite::createWithSpriteFrameName(name+spname+".png");
+//    if (name!="enemy") {
+//        
+//        mSprite=Sprite::createWithSpriteFrameName(name+spname+".png");
+//
+//    }
     
     
     
@@ -41,6 +47,7 @@ void Role::onEnter()
     this->isJump=false;
     //idleAction->retain();
     
+    jumps = 0;
     
     schedule(schedule_selector(Role::updateState), global->fps);
     schedule(schedule_selector(Role::updateDown),global->fps);
@@ -58,8 +65,18 @@ void Role::changeState(State s)
     if(nowState!=jump){
         formState=nowState;
     }
+    if(nowState == dead){
+        return;
+    }
+
+    
+ 
     nowState=s;
+    
+    
     isRun=false;
+    
+    
     switch (nowState) {
         case idle:
             this->stopAllActionsByTag(2);
@@ -68,7 +85,7 @@ void Role::changeState(State s)
             _horizontalvelocity=Vec2(0,0);
             idleAction=RepeatForever::create(Animate::create(this->getIdleAni()));
             // downAction=RepeatForever::create(Animate::create(this->getIdleAni()));
-            this->mSprite->runAction(idleAction->clone());
+            this->mSprite->runAction(idleAction);
             break;
         case rightwalk:
             isRun=true;
@@ -76,14 +93,12 @@ void Role::changeState(State s)
             this->setNowDestination(right);
             this->mSprite->stopAllActions();
             this->mSprite->setFlippedX(false);
-            _horizontalvelocity=Vec2(2,0);
+            _horizontalvelocity=Vec2(speed,0);
             
-            moveAction=RepeatForever::create(MoveBy::create(0.1,Vec2(10,0)));
-            moveAction->setTag(2);
-            //    if(!isJump){
+        
+           
             this->mSprite->runAction(RepeatForever::create(Animate::create(this->getWalkAni())));
-            //   }
-            //this->runAction(moveAction);
+        
             break;
         case leftwalk:
             isRun=true;
@@ -92,18 +107,19 @@ void Role::changeState(State s)
             
             this->mSprite->stopAllActions();
             this->mSprite->setFlippedX(true);
-            _horizontalvelocity=Vec2(-2, 0);
-            moveAction=RepeatForever::create(MoveBy::create(0.1,Vec2(-10,0)));
-            moveAction->setTag(2);
-            //   if(!isJump){
+            _horizontalvelocity=Vec2(-speed, 0);
+          
             this->mSprite->runAction(RepeatForever::create(Animate::create(this->getWalkAni())));
-            //  }
-            //this->runAction(moveAction);
+           
             break;
         case jump:
-            if(!isDown&&!isJump){
-                isOnPlatFormer=false;
-                this->_velocity=Point(0,5);//初速度
+            if (jumps<=1) {
+                
+                //            }
+                //            if(!isDown&&!isJump){
+                // isOnPlatFormer=false;
+                this->_velocity=Point(0,4.5);//初速度
+                jumps++;
                 // this->mSprite->stopAllActions();
                 
                 
@@ -119,7 +135,27 @@ void Role::changeState(State s)
             //                                             CallFunc::create(this,callfunc_selector(Role::JumpOverCallBack)),  NULL) );
             break;
         case dead:
-            this->removeFromParent();
+            
+            
+            
+            if (this->name!="enemy") {
+//                auto func = [&](){
+//                    log("dead");
+//                    this->isRecycled = true;
+//                };
+
+                this->runAction(Sequence::create(Blink::create(1, 3), CallFunc::create([&](){
+                    log("dead");
+                    this->isRecycled = true;
+                }),NULL) );
+            }else{
+                this->mSprite->runAction(RepeatForever::create( Animate::create(this->getDeadAni())));
+            //   this->removeFromParent();
+                unscheduleUpdate();
+            //   this->runAction(Sequence::create(RepeatForever::create( Animate::create(deadAni)), NULL));
+            }
+            
+            //  this->removeFromParent();
             break;
             
         default:
@@ -129,13 +165,13 @@ void Role::changeState(State s)
 void Role::updateState(float dt)
 {
     Vec2 point=global->tileCoordForPosition(this->getPosition());
-    TMXLayer *collisionLayer=global->map->getLayer("ground");
-    if(this->getPositionY()<=-150){
+    experimental:: TMXLayer *collisionLayer=global->map->getLayer("ground");
+    if(this->getPositionY()<=-100){
         this->changeState(dead);
     }
     //CCLOG("y:%f",this->getPositionY());
     //左右碰撞检测
-    int x1=this->getContentSize().width/2;
+    int x1=this->getContentSize().width/2*0.8;
     int y1=this->getContentSize().height/2*0.8;
     Point p1,p2,p3;
     Point playerpoint=this->getPosition();
@@ -156,6 +192,82 @@ void Role::updateState(float dt)
         default:
             break;
     }
+    //头顶碰撞检测
+    Point upp1,upp2,upp3;
+    //upp1=playerpoint-
+    upp1 = playerpoint+Vec2(-x1,y1);
+    upp2 = playerpoint+Vec2(0,y1);
+    upp3 = playerpoint+Vec2(x1,y1);
+    
+    Point rupp1 = global->tileCoordForPosition(upp1);
+    Point rupp2 = global->tileCoordForPosition(upp2);
+    Point rupp3 = global->tileCoordForPosition(upp3);
+    
+    moveplatformy=-200;
+    //Node * onFormNode;
+    bool platformercoll1=false,platformercoll2=false,platformercoll3=false;
+    if (global->platFormNode!=NULL) {
+        Vector<Node*> nodes=global->platFormNode->getChildren();
+        if (nodes.size()>0) {
+            for (auto node: nodes) {
+                
+                PlatFormer * platformer = static_cast<PlatFormer *>(node);
+                if ( abs(node->getPositionX()-this->getPositionX())<=PIXEL_WIDTH/3*2&&this->getPositionY()-node->getPositionY()>0) {
+                    moveplatformy=MAX(moveplatformy,node->getPositionY()+16);
+                    onFormNode=dynamic_cast<PlatFormer*>( node);
+                }
+                Rect rect = platformer->getBoundingBox();
+                if (rect.containsPoint(p1)) {
+                    platformercoll1 = true;
+                }
+                if (rect.containsPoint(p2)) {
+                    
+                    platformercoll2 = true;
+                }
+                if (rect.containsPoint(p3)) {
+                    platformercoll3 = true;
+                }
+                if (platformercoll2&&(platformercoll1||platformercoll2)) {
+                    break;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    bool pformupp1=false,pformupp2=false,pformupp3=false;
+
+    if (global->platFormNode!=NULL) {
+        Vector<Node*> nodes=global->platFormNode->getChildren();
+        if (nodes.size()>0) {
+            for (auto node: nodes) {
+
+                PlatFormer * platformer = static_cast<PlatFormer *>(node);
+                Rect rect = platformer->getBoundingBox();
+                if (rect.containsPoint(upp1)) {
+                    pformupp1 = true;
+                }
+                if (rect.containsPoint(upp2)) {
+                    pformupp2 = true;
+                }
+                if (rect.containsPoint(upp3)) {
+                    pformupp3 = true;
+                }
+                if (pformupp2&&(pformupp1||pformupp3)) {
+                    if (isJump) {
+                        _velocity = Vec2(0,0);
+                    }
+
+                    break;
+                }
+
+            }
+        }
+    }//平台移动上方遮挡舍弃
+    
     Point r1=global->tileCoordForPosition(p1);
     Point r2=global->tileCoordForPosition(p2);
     Point r3=global->tileCoordForPosition(p3);
@@ -163,14 +275,25 @@ void Role::updateState(float dt)
     int id1=collisionLayer->getTileGIDAt(r1);
     int id2=collisionLayer->getTileGIDAt(r2);
     int id3=collisionLayer->getTileGIDAt(r3);
-    if((id1||id3)&&id2)
+    
+    int uid1 = collisionLayer->getTileGIDAt(rupp1);
+    int uid2 = collisionLayer->getTileGIDAt(rupp2);
+    int uid3 = collisionLayer->getTileGIDAt(rupp3);
+    
+    if ((uid1||uid3)&&uid2) {
+        if (isJump) {
+            _velocity = Vec2(0,0);
+        }
+        
+        //    JumpOverCallBack();
+    }
+    //||(platformercoll2&&(platformercoll1||platformercoll2))
+    if(((id1||id3)&&id2)||(platformercoll2&&(platformercoll1||platformercoll2)))
     {
         this->stopAllActionsByTag(2);
         this->_horizontalvelocity=Vec2(0,0);
         isRun=false;
     }else{
-        //此处添加恢复动作
-        //
         
         if(nowState==leftwalk||nowState==rightwalk){
             
@@ -180,6 +303,7 @@ void Role::updateState(float dt)
             }
             //this->changeState(nowState);
         }
+        
         if(nowState==jump&&(formState==leftwalk||formState==rightwalk))
         {
             if(!isRun){
@@ -189,22 +313,6 @@ void Role::updateState(float dt)
     }
     
     int flag=0;
-    moveplatformy=-200;
-    //Node * onFormNode;
-
-    if (global->platFormNode!=NULL) {
-        Vector<Node*> nodes=global->platFormNode->getChildren();
-        if (nodes.size()>0) {
-            for (auto node: nodes) {
-                if ( abs(node->getPositionX()-this->getPositionX())<=PIXEL_WIDTH/3*2&&this->getPositionY()-node->getPositionY()>0) {
-                    moveplatformy=MAX(moveplatformy,node->getPositionY()+16);
-                    onFormNode=dynamic_cast<PlatFormer*>( node);
-                }
-            }
-
-        }
-        
-    }
     
     for(int i=point.y;i<global->map->getMapSize().height;i++)
     {
@@ -223,19 +331,20 @@ void Role::updateState(float dt)
                         CCLOG("downstart");
                         
                         //判断是否在自定义平台上
-                      //  isOnPlatFormer=false;
+                        isOnPlatFormer=false;
                     }else{
                         schedule(schedule_selector(Role::updateGravity),  global->fps);
                         if (!isOnPlatFormer) {
-                        log("isOnplatFormer: false");
+                            //  log("isOnplatFormer: false");
                             isDown=true;//modified ?
                         }else{
-                            log("isOnplatFormer: true ");
+                            //  log("isOnplatFormer: true ");
                             isDown=false;
                         }
+                        isDown=true;//modified ?
                         
                         //CCLOG("b");
-                       // isOnPlatFormer=true;
+                        // isOnPlatFormer=true;
                     }
                 }
                 
@@ -244,10 +353,10 @@ void Role::updateState(float dt)
                 platformy=MAX(global->positionCoordForTile(Vec2(point.x,yIndexPlatForm)).y+global->map->getTileSize().height/2,moveplatformy);
                 if (platformy!=moveplatformy) {
                     //CCLOG("d");
-                   // isOnPlatFormer=false;
+                    // isOnPlatFormer=false;
                 }else{
                     //CCLOG("e");
-                   // isOnPlatFormer=true;
+                    // isOnPlatFormer=true;
                 }
             }
             if(i==global->map->getMapSize().height-1){
@@ -263,16 +372,19 @@ void Role::updateDown(float dt)
 {
     if(isDown)
     {
+        
         Vec2 point=global->tileCoordForPosition(this->getPosition());
         // TMXLayer *collisionLayer=global->map->getLayer("ground");
         float playery=this->getPositionY()-this->getContentSize().height/2;
         // float plateformy=global->positionCoordForTile(Vec2(point.x,yIndexPlatForm)).y+global->map->getTileSize().height/2;
         // CCLOG("comp: %f,%f",playery,plateformy);
         if(playery<=platformy){
-            CCLOG("downtoground");
+            //            log("true");
+            jumps=0;
+            //   CCLOG("downtoground");
             this->stopAllActionsByTag(3);
             this->setPositionY(platformy+this->getContentSize().height/2);
-            if (platformy==moveplatformy) {
+            if (platformy==moveplatformy&&platformy!=-200) {
                 isOnPlatFormer=true;
             }else{
                 isOnPlatFormer=false;
@@ -292,14 +404,17 @@ void Role::downOverCallBack()
     isJump=false;
     isDown=false;
     
-    this->_velocity=Point(0,0);
+    this->_velocity = Point(0,0);
     unschedule(schedule_selector(Role::updateGravity));
     if(nowState==jump){
         changeState(formState);
     }
-    if(nowState==leftwalk||nowState==rightwalk){
-        this->changeState(nowState);
-    }
+    //    if(nowState==leftwalk||nowState==rightwalk){
+    //        this->changeState(nowState);
+    //    }//有什么用？？？
+}
+void Role::deadCallBack(){
+    this->nowState = dead;
 }
 void Role::setViewpointCenter(Point p)
 {
@@ -312,14 +427,14 @@ void Role::setViewpointCenter(Point p)
     Point actualPosition = Point(x, y);
     Point centerOfView = Point(size.width / 2, size.height / 2);
     Point viewPoint =centerOfView - actualPosition;
-
+    
     
     this->getParent()->setPosition(viewPoint);
- 
+   
 }
 void Role::updateGravity(float dt)
 {
-   
+    
     if(_velocity.y<=0)
     {
         JumpOverCallBack();
@@ -334,9 +449,9 @@ void Role::updateGravity(float dt)
 void Role::updateMove(float dt){
     if (isOnPlatFormer) {
         this->setPosition(this->getPosition()+_horizontalvelocity+onFormNode->_velocity);
-
+        
     }else{
         this->setPosition(this->getPosition()+_horizontalvelocity);
-
+        
     }
 }

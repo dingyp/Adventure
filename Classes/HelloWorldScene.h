@@ -20,8 +20,11 @@ public:
     CREATE_FUNC(HelloWorld);
     void touch(Ref * ref,Widget::TouchEventType type);
     void select(Ref * ref,Widget::TouchEventType type);
+    void initHero();
+    
     Node * uiNode;
     Node * platFormNode;
+    experimental::TMXTiledMap * map;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

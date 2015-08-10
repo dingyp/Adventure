@@ -68,6 +68,7 @@ void GatesNode::onEnter(){
                 
            //     break;
             case cocos2d::ui::Widget::TouchEventType::CANCELED:
+                global->hearts=3;
               //  log("ss");
                 switch (gateNum) {
                     case 1:

@@ -21,14 +21,18 @@ class BaseGameScene :public Layer
 public:
     virtual void onEnter();
     static Scene * createScene();
-    TMXTiledMap * map;
+    experimental::TMXTiledMap * map;
     Sprite * background ;
-    void updatetileID(float dt);
+    Sprite * background2 ;
+    ParallaxNode * parallaxNode;
     void updateState(float dt);
+    void win();
+    virtual void nextScene(float dt);
     void restartCallBack(Ref * ref,Widget::TouchEventType type);
-    virtual void restart();
+    virtual void restart() ;
     void initPlateForm();
-    
+    void initTMXTiledMap();
+    void updateBackground(float dt);
     Node * platformNode;
 };
 #endif /* defined(__KaziProject__BaseGameScene__) */

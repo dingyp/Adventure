@@ -18,6 +18,7 @@ bool Player::init()
 }
 Player::Player()
 {
+
    // Sprite * spritexture=Sprite::create("images/miku_num10.png");
     if(NULL==this->getIdleAni()){
         name = "hero2";
@@ -25,8 +26,10 @@ Player::Player()
         this->setWalkAni(global->createAni("hero2walk", 4));
         scales=0.5;
     }
-    
+   // this->_horizontalvelocity = Vec2(1,0);
     schedule(schedule_selector(Player::updateViewPoint), global->fps);
+    hearts = 3;
+    isWin = false;
     
 }
 void Player::updateViewPoint(float dt){

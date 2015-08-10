@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
+#include "StartScene.hpp"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -34,18 +35,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
    // director->getOpenGLView()->setDesignResolutionSize(480,320, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
-    //director->setDisplayStats(true);
+  //  director->setDisplayStats(true);
     glClearColor(1.0, 1.0, 1.0, 1.0);
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 /60);
 
     FileUtils::getInstance()->addSearchPath("res");
-
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
-
+    
     // run
-    director->runWithScene(TransitionFade::create(1, scene));
+    director->runWithScene(TransitionFade::create(0.1,StartScene::createScene()));
 
     return true;
 }

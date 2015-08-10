@@ -32,7 +32,10 @@ public:
     CC_SYNTHESIZE(Animation *, walkAni,WalkAni);
     CC_SYNTHESIZE(Animation *, jumpAni,JumpAni);
     CC_SYNTHESIZE(Animation *, idleAni,IdleAni);
+    CC_SYNTHESIZE(Animation *, deadAni,DeadAni);
     CC_SYNTHESIZE(Destination , nowDestination,NowDestination);
+    
+    int jumps;
     
     void updateState(float dt); //下落判断
     
@@ -52,6 +55,8 @@ public:
     ActionInterval * idleAction;
     float scales;
     
+    void deadCallBack();
+    
     Point _velocity;
     Point _horizontalvelocity;
     int yIndexPlatForm;
@@ -62,5 +67,8 @@ public:
     State formState;
     bool isOnPlatFormer;
     PlatFormer * onFormNode;
+    bool isRecycled;
+    
+    float speed;
 };
 #endif /* defined(__KaziProject__Role__) */

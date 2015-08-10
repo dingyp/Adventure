@@ -16,7 +16,7 @@ bool BaseDialog1::init(){
     }
     dialogSize=Size(150,150);
     
-    
+    isSetClose = false;
 //    auto node = CSLoader::createNode("DialogNode.csb");
 //    this->addChild(node);
 //    
@@ -40,21 +40,21 @@ bool BaseDialog1::init(){
 }
 void BaseDialog1::onEnter(){
     Layer::onEnter();
-   // SpriteFrame * texture= SpriteFrame::create("");
-     background = Scale9Sprite::create("images/dialog2.png");//,Rect(0,0,55,65),Rect(30, 30, 1,1));
-    //background->set
-   // background->setPosition(Vec2(0,0));
-    //background->set
-    
+    background = Scale9Sprite::create("images/dialog2.png");//,Rect(0,0,55,65),Rect(30, 30, 1,1))
     
     background->setPreferredSize(dialogSize);
-    Button * closeButton = Button::create("images/close.png");
-    background->addChild(closeButton);
-    
+    background->retain();
+    closeButton = Button::create("images/close.png");
+    addChild(closeButton,1);
+    closeButton->setTag(-1);
     this->setAnchorPoint(Vec2(0.5,0.5));
-    closeButton->setPosition(Vec2(dialogSize.width,dialogSize.height));
+    log("2");
+    closeButton->setPosition(Vec2(dialogSize.width/2,dialogSize.height/2));
     closeButton->addTouchEventListener(CC_CALLBACK_2(BaseDialog1::closeCallBack, this));
-    //closeButton->addTouchEventListener(CC_CALLBACK_2([](Ref * ref,Widget::TouchEventType type){}, this));
+    if (!isSetClose) {
+        closeButton->setVisible(false);
+    }
+    
     this->addChild(background);
 }
 void BaseDialog1::closeCallBack(Ref * ref,Widget::TouchEventType type)
@@ -75,5 +75,11 @@ void BaseDialog1::closeCallBack(Ref * ref,Widget::TouchEventType type)
 }
 void BaseDialog1::close(){
     //this->removeAllChildren();
+    
     this->removeFromParent();
+}
+void BaseDialog1::setCloseButton(){
+    log("1");
+    isSetClose=true;
+    //  closeButton->addTouchEventListener(CC_CALLBACK_2([](Ref * ref,Widget::TouchEventType type){}, this));
 }

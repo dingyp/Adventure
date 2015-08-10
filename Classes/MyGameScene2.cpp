@@ -9,7 +9,7 @@
 #include "MyGameScene2.h"
 MyGameScene2::MyGameScene2()
 {
-    map=TMXTiledMap::create("map/map3.tmx");
+    map=experimental::TMXTiledMap::create("map/map3.tmx");
     // background=Sprite::create("map/blue_shroom.png");
 }
 Scene* MyGameScene2::createScene()
@@ -53,3 +53,6 @@ void MyGameScene2::restart()
 }
 
 
+void MyGameScene2::nextScene(float dt){
+    
+}

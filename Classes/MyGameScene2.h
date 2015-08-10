@@ -18,6 +18,7 @@ public:
     void updateEvent(float dt);
     virtual void onEnter();
     virtual void restart();
+    virtual void nextScene(float dt);
 };
 #endif /* defined(__KaziProject__MyGameScene2__) */
 

@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #define COLOR_BLACK Color3B(0,0,0)
 #define COLOR_WHITE Color3B(255,255,255)
+#define COLOR_BLACK4 Color4B(255,0,0,0)
 #define PIXEL_WIDTH 32
 #define PIXEL_HEIGHT 32
 #endif /* defined(__KaziProject__Define__) */
