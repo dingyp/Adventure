@@ -81,10 +81,8 @@ void Role::changeState(State s)
         case idle:
             this->stopAllActionsByTag(2);
             this->mSprite->stopAllActions();
-            // this->_velocity=Point(0,0);
             _horizontalvelocity=Vec2(0,0);
             idleAction=RepeatForever::create(Animate::create(this->getIdleAni()));
-            // downAction=RepeatForever::create(Animate::create(this->getIdleAni()));
             this->mSprite->runAction(idleAction);
             break;
         case rightwalk:
@@ -115,15 +113,8 @@ void Role::changeState(State s)
         case jump:
             if (jumps<=1) {
                 
-                //            }
-                //            if(!isDown&&!isJump){
-                // isOnPlatFormer=false;
                 this->_velocity=Point(0,4.5);//初速度
                 jumps++;
-                // this->mSprite->stopAllActions();
-                
-                
-                //            this->mSprite->setSpriteFrame(SpriteFrame::createWithTexture(walkTexture, Rect(width/2,0,width/8,height)));
                 CCLOG("jump1");
                 if(!isJump){
                     CCLOG("jump2");
@@ -131,8 +122,6 @@ void Role::changeState(State s)
                     isJump=true;
                 }
             }
-            //            this->runAction(Sequence::create(JumpBy::create(1, Vec2(0,80),50,1),
-            //                                             CallFunc::create(this,callfunc_selector(Role::JumpOverCallBack)),  NULL) );
             break;
         case dead:
             
@@ -287,7 +276,6 @@ void Role::updateState(float dt)
         
         //    JumpOverCallBack();
     }
-    //||(platformercoll2&&(platformercoll1||platformercoll2))
     if(((id1||id3)&&id2)||(platformercoll2&&(platformercoll1||platformercoll2)))
     {
         this->stopAllActionsByTag(2);

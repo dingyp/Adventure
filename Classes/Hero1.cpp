@@ -35,6 +35,8 @@ Hero1::Hero1()
     speed = 2;
 }
 Hero1::Hero1(int character_idx){
+    Animation * idelAni = Animation::create();
+    Animation * walkAni = Animation::create();
     switch (character_idx) {
         case 0:
             name = "hero3";
@@ -45,19 +47,43 @@ Hero1::Hero1(int character_idx){
             scales=0.5;
             speed = 2;
             break;
+        case 1:
+            name = "baozi";
+            mSprite = Sprite::createWithSpriteFrameName(name+"1.png");
+            idelAni->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(name+"1.png"));
+            idelAni->setDelayPerUnit(0.08);
+            idelAni->retain();
+            this->setIdleAni(idelAni);
+            
+            for (int i =1; i<=7; i++) {
+                char s[2];
+                sprintf(s,"%d",i);
+                //char *
+                walkAni->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(name+s+".png"));
+              
+                
+            }
+           
+            walkAni->setDelayPerUnit(0.08);
+            walkAni->retain();
+            this->setWalkAni(walkAni);
+            
+            scales=0.12;
+            speed = 2;
+            break;
             
         default:
             name = "saw";
             
             
             mSprite = Sprite::createWithSpriteFrameName("saw.png");
-            Animation * idelAni = Animation::create();
+           
             idelAni->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("saw.png"));
             idelAni->setDelayPerUnit(0.08);
             idelAni->retain();
             this->setIdleAni(idelAni);
         
-            Animation * walkAni = Animation::create();
+           
             walkAni->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("saw.png"));
             walkAni->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("saw_move.png"));
             

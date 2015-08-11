@@ -79,7 +79,7 @@ Rect Enemy::getBoundingBox(){
 void Enemy::update(float dt){
      if (this->getBoundingBox().containsPoint( global->player->getPosition())&&global->player->nowState!=dead) {
          
-         if (global->player->getPositionY()-this->getPositionY()>0) {
+         if (global->player->getPositionY()-this->getPositionY()>0&&global->player->isDown) {
              this->changeState(idle);
              this->changeState(dead);
              global->player->_velocity=Vec2(0, 2);

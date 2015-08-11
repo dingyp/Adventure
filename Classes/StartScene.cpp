@@ -43,7 +43,8 @@ bool StartScene::init(){
     Director::getInstance()->getTextureCache()->addImageAsync("images/enemies.png", CC_CALLBACK_1(StartScene::loadingTextureCallBack,this));
     Director::getInstance()->getTextureCache()->addImageAsync("images/tiles.png", CC_CALLBACK_1(StartScene::loadingTextureCallBack,this));
 
-    
+    Director::getInstance()->getTextureCache()->addImageAsync("images/baozi.png", CC_CALLBACK_1(StartScene::loadingTextureCallBack,this));
+
     
     return true;
 }
@@ -83,6 +84,9 @@ void StartScene::loadingTextureCallBack(Texture2D * texture)
         case 8:
             SpriteFrameCache::getInstance()->addSpriteFramesWithFile("images/tiles.plist",texture);
             break;
+        case 9:
+            SpriteFrameCache::getInstance()->addSpriteFramesWithFile("images/baozi.plist",texture);
+            break;
             
     }
     log("%d",m_iNumOfLoad);
@@ -91,8 +95,8 @@ void StartScene::updateState(float dt){
     char str[25];
     sprintf(str, "加载纹理中 ::>_<:: ");
     numLabel->setString(str);
-    if (m_iNumOfLoad>=9) {
-        scheduleOnce(schedule_selector(StartScene::nextScene), 1);
+    if (m_iNumOfLoad>=10) {
+        scheduleOnce(schedule_selector(StartScene::nextScene), 0.5);
         this->unschedule(schedule_selector( StartScene::updateState));
     }
 }

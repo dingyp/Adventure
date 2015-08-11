@@ -27,8 +27,8 @@ bool ChooseDialog::init(){
     chooseView->setClippingEnabled(true);
     chooseView->setContentSize(Size(300,200));
     chooseView->setAnchorPoint(Vec2(0.5,0.5));
-    chooseView->addPage(createLayout("hero3walk1.png","我是一只可爱的小猴子\nhhhhhhhhhhhhhhhhhhhhhhh"));
-    chooseView->addPage(createLayout("hero3walk1.png","我也是哦～"));
+    chooseView->addPage(createLayout("hero3walk1.png","我是一只可爱的小猴子\n"));
+    chooseView->addPage(createLayout("baozi1.png","我是一个可能会被吃掉的的包子 T _ T"));
     chooseView->addPage(createLayout("saw.png","选择我有惊喜 >_<"));
     
     addChild(chooseView,1);
